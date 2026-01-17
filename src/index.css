@@ -323,6 +323,15 @@
   animation: spin-slow 20s linear infinite;
 }
 
+.animate-gradient-text {
+  background-size: 300% auto;
+  animation: gradient-shift 4s linear infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
 .animate-float-3d {
   animation: float-3d 8s ease-in-out infinite;
 }
