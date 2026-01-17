@@ -1,4 +1,5 @@
 import { Shield, Users, Lightbulb, Code2 } from "lucide-react";
+import ScrollReveal from "./ScrollReveal";
 
 const pillars = [
   {
@@ -43,27 +44,28 @@ const MissionSection = () => {
             </p>
           </div>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {pillars.map((pillar, index) => (
-            <div
-              key={pillar.title}
-              className="group relative bg-white/[0.02] border border-white/5 rounded-2xl p-8 transition-all duration-300 hover:bg-white/[0.05] hover:border-white/10"
-            >
-              <div className="flex flex-col gap-6">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300">
-                  <pillar.icon className="w-6 h-6" />
-                </div>
-                <div>
-                  <h4 className="text-xl font-semibold text-white mb-3">
-                    {pillar.title}
-                  </h4>
-                  <p className="text-sm text-white/40 leading-relaxed">
-                    {pillar.description}
-                  </p>
+            <ScrollReveal key={pillar.title} direction="up" delay={index * 0.1} duration={0.5}>
+              <div
+                className="group relative bg-white/[0.02] border border-white/5 rounded-2xl p-8 transition-all duration-300 hover:bg-white/[0.05] hover:border-white/10 h-full"
+              >
+                <div className="flex flex-col gap-6">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300">
+                    <pillar.icon className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-semibold text-white mb-3">
+                      {pillar.title}
+                    </h4>
+                    <p className="text-sm text-white/40 leading-relaxed">
+                      {pillar.description}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>
