@@ -3,7 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { 
   ShieldAlert, Globe2, Users2, ShieldCheck, 
-  ArrowRight, Landmark, Compass, Award, Github
+  ArrowRight, Landmark, Compass, Award, Github,
+  Target
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -14,7 +15,7 @@ interface BlueprintPillar {
   icon: any;
   problem: string;
   solution: string;
-  milestones: { name: string; progress: number }[];
+  objectives: string[];
   impactRating: string;
   repoUrl: string;
 }
@@ -30,10 +31,10 @@ const SparkLab = () => {
       icon: Globe2,
       problem: "Everyday digital utilities (PDF tools, compressors, AI helpers) are locked behind corporate paywalls, require cloud uploads, harvest user metadata, and suffer from remote server outages.",
       solution: "OBN builds and standardizes a catalog of high-powered tools that run completely locally within the user's browser, eliminating hosting overhead, server latency, and corporate data locks.",
-      milestones: [
-        { name: "Core Utility Architecture", progress: 95 },
-        { name: "Offline-First Engine Integration", progress: 88 },
-        { name: "Decentralized Registry Standards", progress: 70 }
+      objectives: [
+        "Core Utility Architecture",
+        "Offline-First Engine Integration",
+        "Decentralized Registry Standards"
       ],
       impactRating: "SYSTEM-WIDE DECENTRALIZATION",
       repoUrl: "https://github.com/openbuildnetwork/"
@@ -45,10 +46,10 @@ const SparkLab = () => {
       icon: ShieldAlert,
       problem: "Modern web platforms are built on an extraction economy. Telemetry, analytics, tracking pixels, and secret data logs actively erode individual digital sovereignty.",
       solution: "OBN operates under a strict Privacy-First directive. Zero cloud tracking, zero network telemetry, and browser-only execution. Your files, keys, and thoughts remain permanently on your own machine.",
-      milestones: [
-        { name: "Sovereign Local Datastores", progress: 92 },
-        { name: "Zero-Telemetry Compliance Audits", progress: 100 },
-        { name: "Cryptographic Node Standards", progress: 80 }
+      objectives: [
+        "Sovereign Local Datastores",
+        "Zero-Telemetry Compliance Audits",
+        "Cryptographic Node Standards"
       ],
       impactRating: "ABSOLUTE INDIVIDUAL PRIVACY",
       repoUrl: "https://github.com/openbuildnetwork/"
@@ -60,10 +61,10 @@ const SparkLab = () => {
       icon: Users2,
       problem: "Traditional open-source repositories suffer from hostile gatekeeping, complex onboarding paths, and a high barrier to entry for beginners and UI/UX architects.",
       solution: "We foster a collaborative global guild that pairs developers, designers, and advocates. OBN provides guided sandboxes, democratic roadmap voting, and supportive mentorship structures.",
-      milestones: [
-        { name: "Collaborative Onboarding Paths", progress: 85 },
-        { name: "Democratic Governance Models", progress: 75 },
-        { name: "Global Peer Mentorship Grid", progress: 65 }
+      objectives: [
+        "Collaborative Onboarding Paths",
+        "Democratic Governance Models",
+        "Global Peer Mentorship Grid"
       ],
       impactRating: "DEMOCRATIC OPEN COLLABORATION",
       repoUrl: "https://github.com/openbuildnetwork/builder-guild"
@@ -190,25 +191,20 @@ const SparkLab = () => {
 
                   <div className="h-px bg-white/10" />
 
-                  {/* Milestones Trajectory progress */}
+                  {/* Strategic Focus Objectives */}
                   <div className="space-y-4">
-                    <span className="text-[9px] font-mono text-white/30 uppercase tracking-widest block">Core Trajectory Status</span>
+                    <span className="text-[9px] font-mono text-white/30 uppercase tracking-widest block flex items-center gap-1.5">
+                      <Target className="w-3.5 h-3.5 text-primary" />
+                      Strategic Focus Objectives
+                    </span>
                     
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                      {activePillar.milestones.map((milestone, idx) => (
-                        <div key={idx} className="space-y-2">
-                          <div className="flex justify-between items-center text-[9px] font-mono">
-                            <span className="text-white/40 truncate max-w-[100px]">{milestone.name}</span>
-                            <span className="text-primary font-bold">{milestone.progress}%</span>
-                          </div>
-                          <div className="w-full bg-white/5 h-1 rounded-full overflow-hidden">
-                            <motion.div 
-                              className="bg-primary h-full rounded-full"
-                              initial={{ width: 0 }}
-                              animate={{ width: `${milestone.progress}%` }}
-                              transition={{ duration: 1, delay: idx * 0.15 }}
-                            />
-                          </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      {activePillar.objectives.map((objective, idx) => (
+                        <div key={idx} className="flex items-center gap-2.5 rounded-xl border border-white/5 bg-white/[0.01] hover:bg-white/[0.03] hover:border-white/10 px-3.5 py-3 transition-all duration-300">
+                          <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary text-[10px] font-mono border border-primary/20">
+                            0{idx + 1}
+                          </span>
+                          <span className="text-xs font-semibold text-white/70 tracking-tight leading-snug">{objective}</span>
                         </div>
                       ))}
                     </div>

@@ -3,6 +3,7 @@ import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logowhite.png";
+import { supabase } from "@/lib/supabase";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,12 +11,61 @@ const Navbar = () => {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
 
+  const [isJoined, setIsJoined] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    // Initial check for Supabase session & database membership status
+    const checkUserJoined = async () => {
+      try {
+        const { data: { session } } = await supabase.auth.getSession();
+        if (session?.user?.id) {
+          const { data, error } = await supabase
+            .from("alliance_members")
+            .select("id")
+            .eq("id", session.user.id)
+            .maybeSingle();
+          setIsJoined(Boolean(data && !error));
+        } else {
+          setIsJoined(false);
+        }
+      } catch (err) {
+        console.error("Error reading initial membership state in Navbar:", err);
+      }
+    };
+    
+    checkUserJoined();
+
+    // Listen to real-time auth changes
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
+      if (session?.user?.id) {
+        const { data, error } = await supabase
+          .from("alliance_members")
+          .select("id")
+          .eq("id", session.user.id)
+          .maybeSingle();
+        setIsJoined(Boolean(data && !error));
+      } else {
+        setIsJoined(false);
+      }
+    });
+
+    // Custom window events to trigger real-time hiding/showing without delays
+    const handleAllianceJoined = () => setIsJoined(true);
+    const handleAllianceLeft = () => setIsJoined(false);
+
+    window.addEventListener("obn_alliance_joined", handleAllianceJoined);
+    window.addEventListener("obn_alliance_left", handleAllianceLeft);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      subscription.unsubscribe();
+      window.removeEventListener("obn_alliance_joined", handleAllianceJoined);
+      window.removeEventListener("obn_alliance_left", handleAllianceLeft);
+    };
   }, []);
 
   const navItems = [
@@ -55,6 +105,15 @@ const Navbar = () => {
               </Link>
             )
           ))}
+          {/* Join Alliance Button */}
+          {!isJoined && (
+            <a
+              href={isHomePage ? "#alliance-register" : "/#alliance-register"}
+              className="ml-2 px-5 py-2.5 rounded-full border border-primary/30 bg-primary/10 hover:bg-primary/25 hover:border-primary text-[9px] font-bold uppercase tracking-[0.2em] text-white transition-all duration-300 shadow-[0_0_15px_rgba(139,92,246,0.15)] hover:shadow-[0_0_25px_rgba(139,92,246,0.35)]"
+            >
+              Join Alliance
+            </a>
+          )}
         </div>
 
         {/* Mobile Menu Button */}
@@ -91,6 +150,16 @@ const Navbar = () => {
                 </Link>
               )
             ))}
+            {/* Join Alliance Mobile Button */}
+            {!isJoined && (
+              <a
+                href={isHomePage ? "#alliance-register" : "/#alliance-register"}
+                className="mt-2 text-center px-5 py-3 rounded-full border border-primary/30 bg-primary/10 hover:bg-primary/25 hover:border-primary text-[10px] font-bold uppercase tracking-[0.2em] text-white transition-all duration-300 shadow-[0_0_15px_rgba(139,92,246,0.15)]"
+                onClick={() => setIsOpen(false)}
+              >
+                Join Alliance
+              </a>
+            )}
           </div>
         </div>
       )}
