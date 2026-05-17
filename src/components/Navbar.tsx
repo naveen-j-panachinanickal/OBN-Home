@@ -21,7 +21,7 @@ const Navbar = () => {
   const navItems = [
     { label: "Our Mission", href: isHomePage ? "#mission" : "/#mission", isHash: true },
     { label: "Projects", href: "/projects", isHash: false },
-    { label: "About Us", href: isHomePage ? "#about-us" : "/#about-us", isHash: true }
+    { label: "About Us", href: "/about", isHash: false }
   ];
 
   return (

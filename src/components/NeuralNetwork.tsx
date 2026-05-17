@@ -149,7 +149,7 @@ const NeuralNetwork = () => {
   const selectedNode = nodes.find(n => n.id === selectedNodeId) || nodes[0];
 
   return (
-    <section className="relative py-32 md:py-48 overflow-hidden bg-transparent" id="about-us">
+    <section className="relative py-32 md:py-48 overflow-hidden bg-transparent" id="principles">
       <div className="container px-4 max-w-7xl mx-auto relative z-10">
         <div className="max-w-4xl mx-auto text-center mb-24">
           <h2 className="text-xs font-bold text-primary uppercase tracking-[0.4em] mb-4">
