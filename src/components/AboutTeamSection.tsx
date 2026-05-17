@@ -20,7 +20,6 @@ type TeamMember = {
   accent: string;
 };
 
-const companyLinkedIn = "https://www.linkedin.com/company/openbuildnetwork/";
 
 // Swap these placeholders with official portraits and individual LinkedIn URLs.
 const teamMembers: TeamMember[] = [
@@ -28,15 +27,15 @@ const teamMembers: TeamMember[] = [
     name: "Don Benny",
     designation: "Founder & Software Engineer",
     image:"founders/donbenny.webp",
-    linkedin: companyLinkedIn,
+    linkedin: "https://www.linkedin.com/in/donbenny/",
     focus: "Vision, roadmap, and product direction & AI Development",
-    accent: "gba(45, 212, 191, 0.34)",
+    accent: "rgba(45, 212, 191, 0.34)",
   },
   {
     name: "Naveen J Panachinanickal",
     designation: "Co-founder & Software Engineer",
     image:"founders/naveenj.webp",
-    linkedin: companyLinkedIn,
+    linkedin: "https://www.linkedin.com/in/naveenjpanachinanickal/",
     focus: "Scalable web tooling and platform quality",
     accent: "rgba(96, 165, 250, 0.34)",
   },
@@ -44,7 +43,7 @@ const teamMembers: TeamMember[] = [
     name: "Romeo Roshan",
     designation: "Co-founder & Software Engineer",
     image:"founders/romeoroshan.webp",
-    linkedin: companyLinkedIn,
+    linkedin: "https://www.linkedin.com/in/romeo-roshan-361097321/",
     focus: "Privacy-first architecture, Frontend & AI Development",
     accent: "rgba(52, 211, 153, 0.34)",
   },
@@ -52,7 +51,7 @@ const teamMembers: TeamMember[] = [
     name: "Ashin Steephan",
     designation: "Co-founder & Software Tester",
     image:"founders/ashinsteephan.webp",
-    linkedin: companyLinkedIn,
+    linkedin: "https://www.linkedin.com/in/ashinsteephan/",
     focus: "Quality Assurance & Content Validation",
     accent: "rgba(251, 113, 133, 0.32)",
   },
@@ -60,7 +59,7 @@ const teamMembers: TeamMember[] = [
     name: "Rony Binoy",
     designation: "Co-Founder & Devops Engineer",
     image:"founders/ronybinoy.webp",
-    linkedin: companyLinkedIn,
+    linkedin: "https://www.linkedin.com/in/rony-binoy/",
     focus: "CI/CD pipelines & Cloud Infrastructure",
     accent: "rgba(251, 191, 36, 0.32)",
   },
@@ -68,7 +67,7 @@ const teamMembers: TeamMember[] = [
     name: "Fable K Lonappan",
     designation: "Co-Founder & Software Developer",
     image:"founders/fableklonappan.webp",
-    linkedin: companyLinkedIn,
+    linkedin: "https://www.linkedin.com/in/fableklonappan/",
     focus: "Fast, accessible, expressive user experiences",
     accent: "rgba(34, 211, 238, 0.34)",
   },
@@ -76,7 +75,7 @@ const teamMembers: TeamMember[] = [
     name: "Tony K Sebastian",
     designation: "Co-Founder & Software Developer",
     image:"founders/tonyksebastian.webp",
-    linkedin: companyLinkedIn,
+    linkedin: "https://www.linkedin.com/in/tonyk-sebastian/",
     focus: "Privacy-first architecture, infrastructure & Tool Development",
     accent: "rgba(129, 140, 248, 0.34)",
   },
@@ -84,7 +83,7 @@ const teamMembers: TeamMember[] = [
     name: "Midhun Krishnan",
     designation: "Co - Founder & Software Developer",
     image:"founders/midhunkrishnan.webp",
-    linkedin: companyLinkedIn,
+    linkedin: "https://www.linkedin.com/in/midhun-krishnan/",
     focus: "Clear documentation and pipeline development",
     accent: "rgba(244, 114, 182, 0.32)",
   },
@@ -92,7 +91,7 @@ const teamMembers: TeamMember[] = [
     name: "Albert Devasia",
     designation: "Co - Founder & Software Developer",
     image:"founders/albertdevasia.webp",
-    linkedin: companyLinkedIn,
+    linkedin: "https://www.linkedin.com/in/albert-devasia/",
     focus: "privacy-first development",
     accent: "rgba(74, 222, 128, 0.34)",
   },
@@ -124,11 +123,11 @@ const AboutTeamSection = () => {
               About OBN
             </span>
 
-            <h2 className="max-w-xl text-4xl font-extrabold leading-tight tracking-tight text-white md:text-6xl">
-              Built by people who care about useful, open technology.
+            <h2 className="max-w-xl text-4xl font-extrabold leading-[1.1] tracking-tight text-white md:text-5xl lg:text-6xl">
+              Built by people who care about <span className="bg-gradient-to-r from-cyan-400 via-teal-300 to-emerald-400 bg-clip-text text-transparent">useful, open technology.</span>
             </h2>
 
-            <div className="mt-7 space-y-5 text-sm font-light leading-relaxed text-white/58 md:text-base">
+            <div className="mt-7 space-y-5 text-sm font-normal leading-relaxed text-white/70 md:text-base">
               <p>
                 Open Build Network is shaped by builders, designers, writers, researchers, and community organizers who believe practical tools should stay open, private, and accessible.
               </p>
@@ -141,9 +140,9 @@ const AboutTeamSection = () => {
               {principles.map(({ Icon, label }) => (
                 <div
                   key={label}
-                  className="flex items-center gap-3 rounded-[8px] border border-white/10 bg-white/[0.035] px-4 py-3 text-sm text-white/72 backdrop-blur-md"
+                  className="flex items-center gap-3 rounded-[10px] border border-white/10 bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/20 hover:translate-x-1 px-4 py-3 text-sm text-white/80 backdrop-blur-md transition-all duration-300"
                 >
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-[8px] border border-white/10 bg-black/35 text-cyan-300">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-[8px] border border-white/10 bg-black/35 text-cyan-300 transition-colors duration-300">
                     <Icon className="h-4 w-4" />
                   </span>
                   <span className="font-medium">{label}</span>
@@ -167,7 +166,7 @@ const AboutTeamSection = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Open LinkedIn profile for ${member.name}`}
-                  className="group relative block min-h-[360px] overflow-hidden rounded-[8px] border border-white/10 bg-black/48 p-3 text-left shadow-2xl outline-none ring-1 ring-white/[0.03] backdrop-blur-xl transition-colors duration-300 hover:border-white/25 focus-visible:border-cyan-300/60 focus-visible:ring-2 focus-visible:ring-cyan-300/40"
+                  className="group relative flex flex-col justify-between min-h-[410px] overflow-hidden rounded-[12px] border border-white/10 bg-[#0B0B0F]/90 p-4 text-left shadow-2xl outline-none ring-1 ring-white/[0.03] transition-all duration-300 hover:border-white/25 focus-visible:border-cyan-300/60 focus-visible:ring-2 focus-visible:ring-cyan-300/40"
                   style={{ "--member-accent": member.accent } as CSSProperties}
                   initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -182,40 +181,43 @@ const AboutTeamSection = () => {
                   />
                   <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(115deg,transparent_0%,rgba(255,255,255,0.08)_42%,transparent_58%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
-                  <div className="relative z-10 flex h-full flex-col">
-                    <div className="relative aspect-[4/5] overflow-hidden rounded-[6px] bg-white/5">
-                      <img
-                        src={member.image}
-                        alt={`${member.name}, ${member.designation}`}
-                        className="h-full w-full object-cover grayscale-[18%] transition duration-700 group-hover:scale-105 group-hover:grayscale-0"
-                        loading="lazy"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/8 to-transparent" />
-                      <div className="absolute left-3 top-3 flex h-8 w-8 items-center justify-center rounded-[8px] border border-white/15 bg-black/42 text-white/78 backdrop-blur-md transition-colors group-hover:text-cyan-200">
-                        <Linkedin className="h-4 w-4" />
+                  <div className="relative z-10 flex flex-1 flex-col justify-between">
+                    <div className="flex flex-col flex-1">
+                      <div className="relative aspect-[4/5] overflow-hidden rounded-[8px] bg-white/5 transform-gpu backface-hidden">
+                        <img
+                          src={member.image}
+                          alt={`${member.name}, ${member.designation}`}
+                          className="h-full w-full object-cover grayscale-[18%] transition duration-700 group-hover:scale-105 group-hover:grayscale-0 transform-gpu backface-hidden will-change-transform"
+                          style={{ imageRendering: "-webkit-optimize-contrast" }}
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/8 to-transparent" />
+                        <div className="absolute left-3 top-3 flex h-8 w-8 items-center justify-center rounded-[8px] border border-white/15 bg-black/42 text-white/78 backdrop-blur-md transition-colors group-hover:text-cyan-200">
+                          <Linkedin className="h-4 w-4" />
+                        </div>
                       </div>
-                    </div>
 
-                    <div className="flex flex-1 flex-col justify-between px-1 pb-1 pt-4">
-                      <div>
+                      <div className="flex flex-1 flex-col pt-4 pb-2">
                         <div className="flex items-start justify-between gap-3">
                           <div>
-                            <h3 className="text-lg font-bold leading-snug tracking-tight text-white">
+                            <h3 className="text-lg font-bold leading-snug tracking-tight text-white group-hover:text-cyan-300 transition-colors duration-300">
                               {member.name}
                             </h3>
-                            <p className="mt-1 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-200/74">
+                            <p className="mt-1 text-[10px] font-bold uppercase tracking-[0.2em] text-cyan-400/80">
                               {member.designation}
                             </p>
                           </div>
                           <ArrowUpRight className="mt-1 h-4 w-4 shrink-0 text-white/35 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-white" />
                         </div>
 
-                        <p className="mt-4 text-sm font-light leading-relaxed text-white/52">
+                        <p className="mt-3 text-sm font-normal leading-relaxed text-white/60 group-hover:text-white/80 transition-colors duration-300">
                           {member.focus}
                         </p>
                       </div>
+                    </div>
 
-                      <div className="mt-5 h-px w-full overflow-hidden bg-white/10">
+                    <div className="mt-2">
+                      <div className="h-px w-full overflow-hidden bg-white/10">
                         <div className="h-full w-1/3 translate-x-[-120%] bg-cyan-200/70 transition-transform duration-700 group-hover:translate-x-[320%]" />
                       </div>
                     </div>
