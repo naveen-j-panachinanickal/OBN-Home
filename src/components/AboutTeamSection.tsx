@@ -26,7 +26,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Don Benny",
     designation: "Founder & Software Engineer",
-    image:"founders/donbenny.webp",
+    image: "founders/donbenny.webp",
     linkedin: "https://www.linkedin.com/in/donbenny/",
     focus: "Vision, roadmap, and product direction & AI Development",
     accent: "rgba(45, 212, 191, 0.34)",
@@ -34,7 +34,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Naveen J Panachinanickal",
     designation: "Co-founder & Software Engineer",
-    image:"founders/naveenj.webp",
+    image: "founders/naveenj.webp",
     linkedin: "https://www.linkedin.com/in/naveenjpanachinanickal/",
     focus: "Scalable web tooling and platform quality",
     accent: "rgba(96, 165, 250, 0.34)",
@@ -42,7 +42,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Romeo Roshan",
     designation: "Co-founder & Software Engineer",
-    image:"founders/romeoroshan.webp",
+    image: "founders/romeoroshan.webp",
     linkedin: "https://www.linkedin.com/in/romeo-roshan-361097321/",
     focus: "Privacy-first architecture, Frontend & AI Development",
     accent: "rgba(52, 211, 153, 0.34)",
@@ -50,7 +50,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Ashin Steephan",
     designation: "Co-founder & Software Tester",
-    image:"founders/ashinsteephan.webp",
+    image: "founders/ashinsteephan.webp",
     linkedin: "https://www.linkedin.com/in/ashinsteephan/",
     focus: "Quality Assurance & Content Validation",
     accent: "rgba(251, 113, 133, 0.32)",
@@ -58,7 +58,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Rony Binoy",
     designation: "Co-Founder & Devops Engineer",
-    image:"founders/ronybinoy.webp",
+    image: "founders/ronybinoy.webp",
     linkedin: "https://www.linkedin.com/in/rony-binoy/",
     focus: "CI/CD pipelines & Cloud Infrastructure",
     accent: "rgba(251, 191, 36, 0.32)",
@@ -66,7 +66,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Fable K Lonappan",
     designation: "Co-Founder & Software Developer",
-    image:"founders/fableklonappan.webp",
+    image: "founders/fableklonappan.webp",
     linkedin: "https://www.linkedin.com/in/fableklonappan/",
     focus: "Fast, accessible, expressive user experiences",
     accent: "rgba(34, 211, 238, 0.34)",
@@ -74,7 +74,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Tony K Sebastian",
     designation: "Co-Founder & Software Developer",
-    image:"founders/tonyksebastian.webp",
+    image: "founders/tonyksebastian.webp",
     linkedin: "https://www.linkedin.com/in/tonyk-sebastian/",
     focus: "Privacy-first architecture, infrastructure & Tool Development",
     accent: "rgba(129, 140, 248, 0.34)",
@@ -82,7 +82,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Midhun Krishnan",
     designation: "Co - Founder & Software Developer",
-    image:"founders/midhunkrishnan.webp",
+    image: "founders/midhunkrishnan.webp",
     linkedin: "https://www.linkedin.com/in/midhun-krishnan/",
     focus: "Clear documentation and pipeline development",
     accent: "rgba(244, 114, 182, 0.32)",
@@ -90,7 +90,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Albert Devasia",
     designation: "Co - Founder & Software Developer",
-    image:"founders/albertdevasia.webp",
+    image: "founders/albertdevasia.webp",
     linkedin: "https://www.linkedin.com/in/albert-devasia/",
     focus: "privacy-first development",
     accent: "rgba(74, 222, 128, 0.34)",
@@ -115,7 +115,7 @@ const AboutTeamSection = () => {
             className="lg:col-span-5"
             initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
             <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.28em] text-cyan-200">
@@ -155,7 +155,7 @@ const AboutTeamSection = () => {
             className="lg:col-span-7"
             initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.08, ease: "easeOut" }}
           >
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
@@ -170,7 +170,7 @@ const AboutTeamSection = () => {
                   style={{ "--member-accent": member.accent } as CSSProperties}
                   initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.18 }}
+                  viewport={{ once: true }}
                   transition={{ duration: 0.55, delay: index * 0.045, ease: "easeOut" }}
                   whileHover={{ y: -7, scale: 1.012 }}
                   whileTap={{ scale: 0.99 }}
@@ -232,7 +232,7 @@ const AboutTeamSection = () => {
           className="mt-14 grid grid-cols-1 gap-4 border-t border-white/10 pt-8 text-sm text-white/50 md:grid-cols-3"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.2 }}
         >
           <div className="flex items-center gap-3">
